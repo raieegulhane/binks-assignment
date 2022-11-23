@@ -8,6 +8,14 @@
     flex-direction: row;
 }
 
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-justify-sb {
+    justify-content: center;
+}
+
 .flex-justify-sb {
     justify-content: space-between;
 }
@@ -32,4 +40,21 @@
 .btn-secondary:hover {
     transform: scale(1.05);
     transition: transform 0.5s ease;
+}
+
+/* page header */
+.page-header {
+    color: var(--color-primary);
+    text-decoration: underline;
+    width: fit-content;
+    padding: 1rem;
+    margin: auto;
+}
+
+.page-wrapper {
+    background-color: var(--color-white);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
 }

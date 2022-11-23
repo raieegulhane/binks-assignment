@@ -1,8 +1,11 @@
 .navbar-wrapper {
+    background-color: var(--color-white);
     color: var(--color-primary);
     font-size: 1.25rem;
     padding: 1rem 3rem;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 1rem;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-logo {
