@@ -12,6 +12,10 @@
     justify-content: space-between;
 }
 
+.flex-align-cn {
+    align-items: center;
+}
+
 /* buttons */
 .btn-secondary {
     background-color: var(--color-secondary);

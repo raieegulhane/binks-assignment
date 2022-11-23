@@ -1,5 +1,10 @@
 .navbar-wrapper {
     color: var(--color-primary);
-    padding: 1.5rem 3rem;
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo {
+    gap: 0.25rem;
 }
