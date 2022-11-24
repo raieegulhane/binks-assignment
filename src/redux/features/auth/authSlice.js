@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const savedAuthStatus = JSON.parse(localStorage.getItem("authSuccessStatus"));
+
 const initialState = {
     authData: {
         username: "",
@@ -7,7 +9,7 @@ const initialState = {
         password: ""
     },
     authMessage: "",
-    authSuccess: false
+    authSuccess: savedAuthStatus ?? false
 }
 
 const authSlice = createSlice({
@@ -25,15 +27,19 @@ const authSlice = createSlice({
 
             state.authMessage = "";
             state.authSuccess = true;
+
+            localStorage.setItem("authSuccessStatus", JSON.stringify(true));
         },
 
-        handleLogin: (state) => {
+        handleLogout: (state) => {
             state.authData.username = "";
             state.authData.email = "";
             state.authData.password = "";
 
             state.authMessage = "";
             state.authSuccess = false;
+
+            localStorage.setItem("authSuccessStatus", JSON.stringify(true));
         }
     },
 });
