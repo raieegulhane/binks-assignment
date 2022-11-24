@@ -42,7 +42,7 @@
     transition: transform 0.5s ease;
 }
 
-/* page header */
+/* page */
 .page-header {
     color: var(--color-primary);
     text-decoration: underline;
@@ -57,4 +57,10 @@
     border-radius: 10px;
     margin: 1rem;
     box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 480px) {
+    .page-wrapper {
+        padding: 0.5rem;
+    }
 }
