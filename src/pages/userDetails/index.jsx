@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchCurrentUser } from "../../redux/features/users/usersSlice";
@@ -12,7 +12,7 @@ const UserDetails = () => {
 
     useEffect(() => {
         dispatch(fetchCurrentUser(userId));
-    }, []);
+    }, [dispatch, userId]);
 
     const { 
         gender,
@@ -50,7 +50,7 @@ const UserDetails = () => {
                 <img    
                     className="user-image" 
                     src={picture.large} 
-                    alt="username-picture"
+                    alt="user"
                 />
 
                 <section className="user-details-section-1 flex flex-col flex-align-cn">
