@@ -2,3 +2,10 @@
     list-style: none;
     margin: auto;
 }
+
+.user-list-loading {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    padding: 2rem;
+    text-align: center;
+}

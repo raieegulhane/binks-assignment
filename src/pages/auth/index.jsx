@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { actions as authActions } from "../../redux/features/auth/authSlice";
 import "./auth.css";
 
 const Login = () => {
+    const location = useLocation();
     const navigate = useNavigate();
-    const { authMessage } = useSelector((state) => state.auth);
+    const { authMessage, authSuccess } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const { updateAuthMessage, handleLogin } = authActions;
 
@@ -22,16 +23,19 @@ const Login = () => {
     }
 
     const togglePasswordVisibility = (event) => {
-        event.stopPropagation()
+        event.stopPropagation();
+        event.preventDefault();
+        
         setPasswordVisibility((prevPasswordVisibility) => !prevPasswordVisibility);
     }
 
-    const authHandler = () => {
+    const authHandler = (event, loginCreds) => {
+        event.preventDefault();
+
         if (username && email && password) {
             if(email.match(validEmailFormat)) {
-                dispatch(handleLogin(loginCredantials));
-                navigate("/");
-                return;
+                dispatch(handleLogin(loginCreds));
+                return navigate(location?.state?.from ? location.state.from : "/", { replace: true });
             }
             return dispatch(updateAuthMessage("Invalid email"));
         }
@@ -43,6 +47,10 @@ const Login = () => {
             dispatch(updateAuthMessage(""));
         }
     }, [loginCredantials]);
+
+    useEffect(() => {
+        authSuccess && navigate(location?.state?.from ? location.state.from : "/", { replace: true });
+    }, [authSuccess])
 
     return(
         <main className="page-wrapper auth-wrapper">
@@ -101,14 +109,13 @@ const Login = () => {
                 </div>
                 <button 
                     className="auth-button"
-                    onClick={authHandler}
+                    onClick={(e) => authHandler(e, loginCredantials)}
                 >
                     Login
                 </button>
             </form>
-            <p className={`auth-message ${authMessage ? "auth-message-visible" : "auth-message-hidden"} flex flex-row`}>
-                <i className="fa-solid fa-triangle-exclamation"></i>
-                <span>{authMessage}</span>
+            <p className={`auth-message ${authMessage ? "auth-message-visible" : "auth-message-hidden"}`}>
+                {authMessage}
             </p>
         </main>
     );

@@ -39,7 +39,7 @@ const authSlice = createSlice({
             state.authMessage = "";
             state.authSuccess = false;
 
-            localStorage.setItem("authSuccessStatus", JSON.stringify(true));
+            localStorage.removeItem("authSuccessStatus");
         }
     },
 });

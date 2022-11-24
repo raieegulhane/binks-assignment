@@ -7,7 +7,7 @@ import "./userList.css";
 
 const UserList = () => {
     const navigate = useNavigate();
-    const { userList } = useSelector((state) => state.users);
+    const { loading, userList, loadingError } = useSelector((state) => state.users);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,22 +19,32 @@ const UserList = () => {
             <header className="page-header">
                 <h1>User List</h1>
             </header>
-            <ul className="users-list-wrapper">
             {
-                userList?.map((user) => {
-                    return(
-                        <li 
-                            key={user?.login?.uuid}
-                            onClick={() => navigate(`/user-details/${user?.login?.uuid}`)}
-                        >
-                            <UserNameCard 
-                                name={user.name}
-                            />
-                        </li>
-                    );
-                })
+                !loadingError ?
+                <>
+                {
+                    loading ? 
+                    <div className="user-list-loading">Loading...</div> :
+                    <ul className="users-list-wrapper">
+                    {
+                        userList?.map((user) => {
+                            return(
+                                <li 
+                                    key={user?.login?.uuid}
+                                    onClick={() => navigate(`/user-details/${user?.login?.uuid}`)}
+                                >
+                                    <UserNameCard 
+                                        name={user.name}
+                                    />
+                                </li>
+                            );
+                        })
+                    }
+                    </ul>
+                } 
+                </> : 
+                <p className="user-list-loading">Unable to fetch users.</p>
             }
-            </ul>
         </main>
     );
 }
