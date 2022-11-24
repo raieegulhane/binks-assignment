@@ -3,9 +3,10 @@
 :root {
     /* colors */
     --color-white: #ffffff;
-    --color-black: #353535;
-    --color-primary: #b62059;
+    --color-black: #333;
+    --color-primary: #b6205a;
     --color-secondary: #ffeef2;
+    --color-grey: #c6c1c2;
 
     /* gradient */
     --gradient-background: linear-gradient(#ffe9ef, #fffcfd );

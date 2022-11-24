@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchCurrentUser } from "../../redux/features/users/usersSlice";
 import "./userDetails.css";
 
@@ -8,6 +8,7 @@ const UserDetails = () => {
     const { userId } = useParams();
     const { currentUser, userList } = useSelector((state) => state.users);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(fetchCurrentUser(userId));
@@ -35,6 +36,13 @@ const UserDetails = () => {
     
     return(
         <main className="page-wrapper">
+            <button 
+                className="back-button flex flex-row"
+                onClick={() => navigate(-1)}
+            >
+                <i className="fa-solid fa-arrow-left"></i>
+                <span>Back to list</span>
+            </button>
             <header className="page-header">
                 <h1>User Details</h1>
             </header>

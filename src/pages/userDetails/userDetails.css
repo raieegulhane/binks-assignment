@@ -1,7 +1,22 @@
+.back-button {
+    color: var(--color-primary);
+    background: none;
+    font-weight: bold;
+    gap: 0.25rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    transform: scale(1.03);
+    transition: transform 0.5s ease;
+}
+
 .user-details {
     color: var(--color-black);
     gap: 1rem;
-    margin: 1rem;
+    margin: 0rem 1rem 2rem;
 }
 
 .user-image {
