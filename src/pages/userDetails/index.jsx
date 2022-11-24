@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchCurrentUser } from "../../redux/features/users/usersSlice";
@@ -6,9 +6,9 @@ import "./userDetails.css";
 
 const UserDetails = () => {
     const { userId } = useParams();
-    const { currentUser, userList } = useSelector((state) => state.users);
+    const { currentUser } = useSelector((state) => state.users);
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchCurrentUser(userId));
