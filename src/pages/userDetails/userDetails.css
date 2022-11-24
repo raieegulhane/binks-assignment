@@ -1,0 +1,34 @@
+.user-details {
+    color: var(--color-black);
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.user-image {
+    border: 10px solid var(--color-secondary);
+    border-radius: 50%;
+}
+
+.user-details-section-1 {
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.username-text {
+    font-size: 0.75rem;
+}
+
+.user-details-section-2 {
+    gap: 1rem;
+}
+
+.user-detail-title {
+    color: var(--color-grey);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
