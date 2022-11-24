@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { UserNameCard } from "../../components";
 import { fetchUserList } from "../../redux/features/users/usersSlice";
 import "./userList.css";
 
 const UserList = () => {
+    const navigate = useNavigate();
     const { userList } = useSelector((state) => state.users);
     const dispatch = useDispatch();
 
@@ -21,7 +23,10 @@ const UserList = () => {
             {
                 userList?.map((user) => {
                     return(
-                        <li key={user?.login?.uuid}>
+                        <li 
+                            key={user?.login?.uuid}
+                            onClick={() => navigate(`/user-details/${user?.login?.uuid}`)}
+                        >
                             <UserNameCard 
                                 name={user.name}
                             />

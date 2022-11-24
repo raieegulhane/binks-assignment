@@ -8,6 +8,7 @@
 }
 
 body { 
+    background-color: var(--color-primary);
     font-family: var(--font-text);
     min-height: 100vh;
 }
