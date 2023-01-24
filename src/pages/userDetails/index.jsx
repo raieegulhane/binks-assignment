@@ -17,7 +17,7 @@ const UserDetails = () => {
     const { 
         gender,
         name, 
-        location: { street },
+        // location: { street },
         city,
         state,
         country,
@@ -70,7 +70,7 @@ const UserDetails = () => {
                         <span className="user-detail-title">Gender</span> 
                         <span>{gender}</span>
                     </p>
-                    <p className="flex flex-col flex-align-cn">
+                    {/* <p className="flex flex-col flex-align-cn">
                         <span className="user-detail-title">Address</span>
                         <span>
                             {street.number && <span>{street.number} </span>}
@@ -80,7 +80,7 @@ const UserDetails = () => {
                             {country && <span>,{country} </span>}
                             {postcode && <span> - {postcode}</span>}
                         </span>
-                    </p>
+                    </p> */}
                     <p className="flex flex-col flex-align-cn">
                         <span className="user-detail-title">Email</span>
                         <span>{email}</span>

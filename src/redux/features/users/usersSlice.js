@@ -23,7 +23,7 @@ const usersSlice = createSlice({
     initialState,
     reducers: {
         fetchCurrentUser: (state, action) => {
-            state.currentUser = current(state).userList.find((user) => user.login.uuid === action.payload); 
+            state.currentUser = state.userList.find((user) => user.login.uuid === action.payload); 
         }
     },
     extraReducers: (builder) => {
